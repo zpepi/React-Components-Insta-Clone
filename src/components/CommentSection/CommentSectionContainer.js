@@ -5,11 +5,14 @@ import Comment from "./Comment";
 import "./Comment.css";
 
 const CommentSection = props => {
+  console.log(props);
   // Add state for the comments
 
   return (
-    <div>
-      {/* map through the comments data and return the Comment component */}
+    <div key = {props.postId}>
+      {props.comments.map((comment, index) => (
+        <Comment key = {index} comment = {comment} />
+      ))};
       <CommentInput />
     </div>
   );
